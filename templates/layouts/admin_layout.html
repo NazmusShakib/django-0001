@@ -1,0 +1,139 @@
+<!doctype html>
+{% load staticfiles %}
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>
+      {% block title %}{% endblock %} | Project01
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'horizotal-light/img/favicon.ico' %}">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/bootstrap.min.css' %}">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/font-awesome.min.css' %}">
+    <!-- adminpro icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/adminpro-custon-icon.css' %}">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/meanmenu.min.css' %}">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/jquery.mCustomScrollbar.min.css' %}">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/animate.css' %}">
+    <!-- summernote CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/summernote.css' %}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/data-table/bootstrap-table.css' %}">
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/data-table/bootstrap-editable.css' %}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/normalize.css' %}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/form.css' %}">
+    <!-- dropzone CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/dropzone.css' %}">
+    <!-- charts CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/c3.min.css' %}">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/style.css' %}">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="{% static 'horizotal-light/css/responsive.css' %}">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/vendor/modernizr-2.8.3.min.js' %}"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    {% include 'partials/top-nav-bar.html' %}
+
+
+    {% block pagecontent %} {% endblock %}
+
+
+
+
+    {% include 'partials/footer.html' %}
+
+    {% include 'partials/floating-chat.html' %}
+
+
+
+    <!-- jquery
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/vendor/jquery-1.11.3.min.js' %}"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/bootstrap.min.js' %}"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/jquery.meanmenu.js' %}"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/jquery.sticky.js' %}"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/jquery.scrollUp.min.js' %}"></script>
+
+    <!-- form validate JS
+    ============================================ -->
+    <script src="{% static 'horizotal-light/js/jquery.form.min.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/form-active.js' %}"></script>
+
+    <!-- counterup JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/counterup/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/counterup/waypoints.min.js' %}"></script>
+    <!-- map JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/tableExport.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/data-table-active.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-editable.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/bootstrap-editable.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-resizable.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/colResizable-1.5.source.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-export.js' %}"></script>
+    <!--  dropzone JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/dropzone.js' %}"></script>
+    <!-- multiple email JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/multiple-email/multiple-email-active.js' %}"></script>
+    <!-- summernote JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/summernote.min.js' %}"></script>
+    <script src="{% static 'horizotal-light/js/summernote-active.js' %}"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="{% static 'horizotal-light/js/main.js' %}"></script>
+</body>
+
+</html>
