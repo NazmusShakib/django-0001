@@ -9,13 +9,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3"></div>
-            <form id="adminpro-register-form" class="adminpro-form">
+            <form action="." method="POST" id="register-form" class="adminpro-form">
+                {% csrf_token %}
                 <div class="col-lg-6">
                     <div class="login-bg">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="logo">
-                                    <a href="#"><img src="{% static 'horizotal-light/img/logo/logo.png' %}" alt=""/>
+                                    <a href="{% url 'login' %}"><img src="{% static 'horizotal-light/img/logo/logo.png' %}" alt="Logo"/>
                                     </a>
                                 </div>
                             </div>
@@ -37,13 +38,13 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="login-input-area register-mg-rt">
-                                            <input type="text" name="text"/>
+                                            <input type="text" name="first_name"/>
                                             <i class="fa fa-user login-user"></i>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="login-input-area">
-                                            <input type="text" name="text"/>
+                                            <input type="text" name="last_name"/>
                                             <i class="fa fa-user login-user"></i>
                                         </div>
                                     </div>
@@ -107,7 +108,7 @@
                             <div class="col-lg-8">
                                 <div class="login-keep-me register-check">
                                     <label class="checkbox">
-                                        <input type="checkbox" name="remember" checked><i></i>Send a copy to my e-mail
+                                        <input type="checkbox" name="send_copy" checked><i></i>Send a copy to my e-mail
                                         address
                                     </label>
                                 </div>
@@ -128,7 +129,7 @@
                             <div class="col-lg-4"></div>
                             <div class="col-lg-8">
                                 <div class="login-button-pro">
-                                    <button type="submit" class="login-button login-button-rg">Log In</button>
+                                    <a href="{% url 'login' %}" class="login-button login-button-rg">Log In</a>
                                     <button type="submit" class="login-button login-button-lg">Register</button>
                                 </div>
                             </div>
@@ -140,5 +141,68 @@
         </div>
     </div>
 </div>
+
+{% endblock %}
+
+
+{% block footer_scripts %}
+
+<script>
+    (function ($) {
+        "use strict";
+        $("#register-form").validate(
+            {
+                rules:
+                    {
+                        username:
+                            {
+                                required: true
+                            },
+                        email:
+                            {
+                                required: true,
+                                email: true
+                            },
+                        password:
+                            {
+                                required: true,
+                                minlength: 3,
+                                maxlength: 20
+                            },
+                        confarm_password:
+                            {
+                                required: true,
+                                minlength: 3,
+                                maxlength: 20
+                            }
+                    },
+                messages:
+                    {
+                        username:
+                            {
+                                required: 'Please enter your username'
+                            },
+                        email:
+                            {
+                                required: 'Please enter your email address',
+                                email: 'Please enter a VALID email address'
+                            },
+                        password:
+                            {
+                                required: 'Please enter your password'
+                            },
+                        confarm_password:
+                            {
+                                required: 'Please enter your confarm password'
+                            }
+                    },
+
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element.parent());
+                }
+            });
+    })(jQuery);
+
+</script>
 
 {% endblock %}
