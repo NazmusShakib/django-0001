@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="admin-logo">
-                    <a href="#"><img src="{% static 'horizotal-light/img/logo/log.png' %}" alt=""/>
+                    <a href="{% url 'dashboard.home' %}"><img src="{% static 'horizotal-light/img/logo/log.png' %}" alt=""/>
                     </a>
                 </div>
             </div>
@@ -56,7 +56,10 @@
                                             </div>
                                             <div class="message-content">
                                                 <span class="message-date">16 Sept</span>
-                                                <h2>Advanda Cro</h2>
+                                                <h2>{% if user.is_authenticated %}
+                                                        {{ user.username }}
+                                                    {% endif %}
+                                                </h2>
                                                 <p>Please done this project as soon possible.</p>
                                             </div>
                                         </a>
@@ -119,7 +122,9 @@
                                             </div>
                                             <div class="notification-content">
                                                 <span class="notification-date">16 Sept</span>
-                                                <h2>Advanda Cro</h2>
+                                                <h2>{% if user.is_authenticated %}
+                                                        {{ user.username }}
+                                                    {% endif %}</h2>
                                                 <p>Please done this project as soon possible.</p>
                                             </div>
                                         </a>
@@ -170,7 +175,9 @@
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
                                class="nav-link dropdown-toggle">
                                 <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
-                                <span class="admin-name">Advanda Cro</span>
+                                <span class="admin-name">{% if user.is_authenticated %}
+                                                        {{ user.username }}
+                                                    {% endif %}</span>
                                 <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
                             </a>
                             <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
@@ -185,7 +192,7 @@
                                 </li>
                                 <li><a href="#"><span class="adminpro-icon adminpro-settings author-log-ic"></span>Settings</a>
                                 </li>
-                                <li><a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                <li><a href="{% url 'logout' %}"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
                                 </li>
                             </ul>
                         </li>
