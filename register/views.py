@@ -27,13 +27,17 @@ def register(request):
 
 def login(request):
     if request.method == 'POST':
-        username = form.changed_data.get('username')
+        username = request.POST.get('username', '')
+        raw_password = request.POST.get('password', '')
         user = authenticate(username=username, password=raw_password)
-        auth_login(request, user)
-        return redirect('dashboard.home')
 
-
-    return render(request, 'login.html')
+        if user is not None:
+            auth_login(request, user)
+            return redirect('dashboard.home')
+        else:
+            return redirect('login')
+    else:
+        return render(request, 'login.html')
 
 
 def logout_view(request):
