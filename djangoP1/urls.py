@@ -24,3 +24,5 @@ urlpatterns = [
     path('dashboard/', include("dashboard.urls")),
     path('', include("register.urls")),
 ]
+
+handler404 = 'register.views.handler404'
