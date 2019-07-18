@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
-      {% block title %}{% endblock %} | Project01
+        {% block title %}{% endblock %} | Project01
     </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -64,114 +64,105 @@
 </head>
 
 <body>
-    <!--[if lt IE 8]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    {% include 'partials/top-nav-bar.html' %}
-
-
-    {% include 'partials/secondary-nav-bar.html' %}
-
-
-    {% include 'partials/mobile-menu.html' %}
+{% include 'partials/top-nav-bar.html' %}
+{% include 'partials/mobile-menu.html' %}
+{% block pagecontent %} {% endblock %}
 
 
-    {% block pagecontent %} {% endblock %}
+{% include 'partials/footer.html' %}
+
+{% include 'partials/floating-chat.html' %}
 
 
-
-
-    {% include 'partials/footer.html' %}
-
-    {% include 'partials/floating-chat.html' %}
-
-
-
-    <!-- jquery
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/vendor/jquery-1.11.3.min.js' %}"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/bootstrap.min.js' %}"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/jquery.meanmenu.js' %}"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/jquery.sticky.js' %}"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/jquery.scrollUp.min.js' %}"></script>
-
-    <!-- counterup JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/counterup/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/counterup/waypoints.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/counterup/counterup-active.js' %}"></script>
-    <!-- peity JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/peity/jquery.peity.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/peity/peity-active.js' %}"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/sparkline/jquery.sparkline.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/sparkline/sparkline-active.js' %}"></script>
-    <!-- flot JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/flot/jquery.flot.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/jquery.flot.tooltip.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/jquery.flot.spline.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/jquery.flot.resize.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/jquery.flot.pie.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/Chart.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/flot/flot-active.js' %}"></script>
-    <!-- map JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/map/raphael.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/map/jquery.mapael.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/map/france_departments.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/map/world_countries.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/map/usa_states.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/map/map-active.js' %}"></script>
-
-
-    <!-- form validate JS
+<!-- jquery
     ============================================ -->
-    <script src="{% static 'horizotal-light/js/jquery.form.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/form-active.js' %}"></script>
+<script src="{% static 'horizotal-light/js/vendor/jquery-1.11.3.min.js' %}"></script>
+<!-- bootstrap JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/bootstrap.min.js' %}"></script>
+<!-- meanmenu JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/jquery.meanmenu.js' %}"></script>
+<!-- mCustomScrollbar JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+<!-- sticky JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/jquery.sticky.js' %}"></script>
+<!-- scrollUp JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/jquery.scrollUp.min.js' %}"></script>
 
-    <!-- counterup JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/counterup/jquery.counterup.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/counterup/waypoints.min.js' %}"></script>
-    <!-- map JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/tableExport.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/data-table-active.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-editable.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/bootstrap-editable.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-resizable.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/colResizable-1.5.source.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/data-table/bootstrap-table-export.js' %}"></script>
-    <!--  dropzone JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/dropzone.js' %}"></script>
-    <!-- multiple email JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/multiple-email/multiple-email-active.js' %}"></script>
-    <!-- summernote JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/summernote.min.js' %}"></script>
-    <script src="{% static 'horizotal-light/js/summernote-active.js' %}"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="{% static 'horizotal-light/js/main.js' %}"></script>
+<!-- counterup JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/counterup/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/counterup/waypoints.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/counterup/counterup-active.js' %}"></script>
+<!-- peity JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/peity/jquery.peity.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/peity/peity-active.js' %}"></script>
+<!-- sparkline JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/sparkline/jquery.sparkline.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/sparkline/sparkline-active.js' %}"></script>
+<!-- flot JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/jquery.flot.tooltip.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/jquery.flot.spline.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/Chart.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/flot/flot-active.js' %}"></script>
+<!-- map JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/map/raphael.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/map/jquery.mapael.js' %}"></script>
+<script src="{% static 'horizotal-light/js/map/france_departments.js' %}"></script>
+<script src="{% static 'horizotal-light/js/map/world_countries.js' %}"></script>
+<script src="{% static 'horizotal-light/js/map/usa_states.js' %}"></script>
+<script src="{% static 'horizotal-light/js/map/map-active.js' %}"></script>
+
+
+<!-- form validate JS
+============================================ -->
+<script src="{% static 'horizotal-light/js/jquery.form.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/form-active.js' %}"></script>
+
+<!-- counterup JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/counterup/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/counterup/waypoints.min.js' %}"></script>
+<!-- map JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/data-table/bootstrap-table.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/tableExport.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/data-table-active.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/bootstrap-table-editable.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/bootstrap-editable.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/bootstrap-table-resizable.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/colResizable-1.5.source.js' %}"></script>
+<script src="{% static 'horizotal-light/js/data-table/bootstrap-table-export.js' %}"></script>
+<!--  dropzone JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/dropzone.js' %}"></script>
+<!-- multiple email JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/multiple-email/multiple-email-active.js' %}"></script>
+<!-- summernote JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/summernote.min.js' %}"></script>
+<script src="{% static 'horizotal-light/js/summernote-active.js' %}"></script>
+<!-- main JS
+    ============================================ -->
+<script src="{% static 'horizotal-light/js/main.js' %}"></script>
 </body>
 
 </html>

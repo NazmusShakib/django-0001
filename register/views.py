@@ -1,7 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
+from django.views.decorators.cache import never_cache
 
 from register.forms import RegisterForm
 
@@ -25,6 +27,12 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
+@login_required
+def profile_view(request):
+    return render(request, 'profile.html')
+
+
+@never_cache
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('username', '')
@@ -37,7 +45,8 @@ def login(request):
         else:
             return redirect('login')
     else:
-        return render(request, 'login.html')
+        if not request.user.is_authenticated:
+            return render(request, 'login.html')
 
 
 def logout_view(request):
@@ -56,4 +65,4 @@ def handler500(request, exception):
     """
      Server Error 500
     """
-    return render(request, 'errors.500.html', status=500)
+    return render(request, 'errors/500.html', status=500)
