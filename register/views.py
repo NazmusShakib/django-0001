@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import logout
 from django.views.decorators.cache import never_cache
 
-from register.forms import RegisterForm, EditProfileForm
+from register.forms import RegisterForm, UpdateProfileForm
 
 
 def register(request):
@@ -28,16 +28,24 @@ def register(request):
 
 @login_required
 def profile_view(request):
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST or None)
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            location = form.cleaned_data['location']
-            bio = form.cleaned_data['bio']
-            print(form)
+    # if request.method == 'POST':
+    #     form = EditProfileForm(request.POST or None)
+    #     if form.is_valid():
+    #         first_name = form.cleaned_data['first_name']
+    #         last_name = form.cleaned_data['last_name']
+    #         location = form.cleaned_data['location']
+    #         bio = form.cleaned_data['bio']
+    #         print(form)
+    form = UpdateProfileForm(request.POST or None)
+    print(form)
+    if form.is_valid():
+        form.save()
 
-    return render(request, 'profile.html')
+    context = {
+        'form': form
+    }
+
+    return render(request, 'test-form.html', context)
 
 
 @never_cache
