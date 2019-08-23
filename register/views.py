@@ -28,24 +28,24 @@ def register(request):
 
 @login_required
 def profile_view(request):
-    # if request.method == 'POST':
-    #     form = EditProfileForm(request.POST or None)
-    #     if form.is_valid():
-    #         first_name = form.cleaned_data['first_name']
-    #         last_name = form.cleaned_data['last_name']
-    #         location = form.cleaned_data['location']
-    #         bio = form.cleaned_data['bio']
-    #         print(form)
-    form = UpdateProfileForm(request.POST or None)
-    print(form)
-    if form.is_valid():
-        form.save()
-
+    if request.method == 'POST':
+        form = UpdateProfileForm(request.POST or None)
+        if form.is_valid():
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            location = form.cleaned_data['location']
+            bio = form.cleaned_data['bio']
+            print(first_name)
+            print(form.data)
+    else:
+        form = None
+    # if form.is_valid():
+    #     form.save()
     context = {
         'form': form
     }
 
-    return render(request, 'test-form.html', context)
+    return render(request, 'profile.html', context)
 
 
 @never_cache
@@ -57,12 +57,11 @@ def login(request):
 
         if user is not None:
             auth_login(request, user)
-            return redirect('dashboard.home')
-        else:
-            return redirect('login')
     else:
         if not request.user.is_authenticated:
             return render(request, 'login.html')
+
+    return redirect('dashboard.home')
 
 
 def logout_view(request):

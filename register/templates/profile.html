@@ -193,7 +193,7 @@
                                         <form action="#" method="POST">
                                             {% csrf_token %}
 
-                                            <div class="form-group-inner">
+                                            <div class="form-group-inner {% for error in form.first_name.errors %} input-with-error {% endfor %}">
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <label class="login2 pull-right pull-right-pro">
@@ -209,6 +209,9 @@
                                                                            name="first_name"
                                                                            placeholder="first name">
                                                                 </div>
+                                                                {% for error in form.first_name.errors %}
+                                                                    <p class="help is-danger"> {{ error | escape }}</p>
+                                                                {% endfor %}
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="form-select-list">
@@ -216,6 +219,9 @@
                                                                            name="last_name"
                                                                            value="{{ user.last_name }}" placeholder="last name">
                                                                 </div>
+                                                                {% for error in form.last_name.errors %}
+                                                                    <p class="help is-danger"> {{ error | escape }}</p>
+                                                                {% endfor %}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -256,6 +262,9 @@
                                                                    name="email"
                                                                    value="{{ user.email }}" class="form-control">
                                                         </div>
+                                                        {% for error in form.email.errors %}
+                                                            <p class="help is-danger"> {{ error | escape }}</p>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -273,8 +282,11 @@
                                                                     </button>
                                                                 </span>
                                                             <input type="date" class="form-control"
-                                                                   name="date_of_birth" value="10/04/2018">
+                                                                   name="birth_date" value="10/04/2018">
                                                         </div>
+                                                        {% for error in form.birth_date.errors %}
+                                                            <p class="help is-danger"> {{ error | escape }}</p>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -294,6 +306,9 @@
                                                             <input type="text" placeholder="location"
                                                                    name="location" class="form-control">
                                                         </div>
+                                                        {% for error in form.location.errors%}
+                                                            <p class="help is-danger"> {{ error | escape }}</p>
+                                                        {% endfor %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -306,6 +321,9 @@
                                                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                                         <textarea name="bio" class="form-control" rows="4">{{ user.bio }}</textarea>
                                                     </div>
+                                                    {% for error in form.bio.errors%}
+                                                        <p class="help is-danger"> {{ error | escape }}</p>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
 
