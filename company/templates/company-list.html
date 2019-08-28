@@ -1,0 +1,29 @@
+{% extends "layouts/admin_layout.html" %}
+{% load static %}
+{% block title %}Company List{% endblock %}
+
+
+{% block pagecontent %}
+    <!-- Breadcome start-->
+    <div class="breadcome-area mg-b-30">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcome-list map-mg-t-40-gl shadow-reset">
+                        <div class="breadcome-heading">
+                            <a href="{% url 'company.create' %}" class="btn btn-success pull-right">Company Onbord</a>
+                        </div>
+                        <ul class="breadcome-menu">
+                            <li><a href="{% url 'dashboard.home' %}">Home</a> <span class="bread-slash">/</span>
+                            </li>
+                            <li><span class="bread-blod">Companies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Breadcome End-->
+{% endblock %}

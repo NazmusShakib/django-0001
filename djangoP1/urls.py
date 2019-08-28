@@ -21,8 +21,9 @@ urlpatterns = [
     path('people/', include('people.urls')),
     path('projects/', include("projects.urls")),
     path('blog/', include("blog.urls")),
-    path('dashboard/', include("dashboard.urls")),
+    path('', include("dashboard.urls")),
     path('', include("register.urls")),
+    path('', include("company.urls")),
 ]
 
 handler404 = 'register.views.handler404'

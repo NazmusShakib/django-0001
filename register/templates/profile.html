@@ -193,7 +193,9 @@
                                         <ul class="messages">
                                             {% for message in messages %}
                                                 <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                                                    {{ message }}
+                                                    <div class="alert alert-success alert-st-one" role="alert">
+                                                        <p class="message-mg-rt message-alert-none"><strong>Well done!</strong> {{ message }}</p>
+                                                    </div>
                                                 </li>
                                             {% endfor %}
                                         </ul>
