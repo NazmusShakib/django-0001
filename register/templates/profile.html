@@ -189,11 +189,20 @@
                         <div class="basic-login-form-ad">
                             <div class="row">
                                 <div class="col-lg-12">
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                                                    {{ message }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                     <div class="all-form-element-inner">
                                         <form action="#" method="POST">
                                             {% csrf_token %}
 
-                                            <div class="form-group-inner {% for error in form.first_name.errors %} input-with-error {% endfor %}">
+                                            <div class="form-group-inner {% for error in user_update_form.first_name.errors %} input-with-error {% endfor %}">
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <label class="login2 pull-right pull-right-pro">
@@ -209,7 +218,7 @@
                                                                            name="first_name"
                                                                            placeholder="first name">
                                                                 </div>
-                                                                {% for error in form.first_name.errors %}
+                                                                {% for error in user_update_form.first_name.errors %}
                                                                     <p class="help is-danger"> {{ error | escape }}</p>
                                                                 {% endfor %}
                                                             </div>
@@ -219,7 +228,43 @@
                                                                            name="last_name"
                                                                            value="{{ user.last_name }}" placeholder="last name">
                                                                 </div>
-                                                                {% for error in form.last_name.errors %}
+                                                                {% for error in user_update_form.last_name.errors %}
+                                                                    <p class="help is-danger"> {{ error | escape }}</p>
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group-inner {% for error in user_update_form.first_name.errors %} input-with-error {% endfor %}">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <label class="login2 pull-right pull-right-pro">
+                                                            Father's Name
+                                                        </label>
+                                                    </div>
+                                                    <div class="col-lg-9">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-select-list">
+                                                                    <input type="text" value="{{ user.profile.father_name }}"
+                                                                           class="form-control basic-ele-mg-b-10"
+                                                                           name="father_name"
+                                                                           placeholder="Father's name">
+                                                                </div>
+                                                                {% for error in profile_form.father_name.errors %}
+                                                                    <p class="help is-danger"> {{ error | escape }}</p>
+                                                                {% endfor %}
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-select-list">
+                                                                    <input type="text" class="form-control"
+                                                                           name="mother_name"
+                                                                           value="{{ user.profile.mother_name }}"
+                                                                           placeholder="Mother's name">
+                                                                </div>
+                                                                {% for error in profile_form.mother_name.errors %}
                                                                     <p class="help is-danger"> {{ error | escape }}</p>
                                                                 {% endfor %}
                                                             </div>
@@ -262,7 +307,7 @@
                                                                    name="email"
                                                                    value="{{ user.email }}" class="form-control">
                                                         </div>
-                                                        {% for error in form.email.errors %}
+                                                        {% for error in user_update_form.email.errors %}
                                                             <p class="help is-danger"> {{ error | escape }}</p>
                                                         {% endfor %}
                                                     </div>
@@ -272,7 +317,7 @@
                                             <div class="form-group-inner">
                                                 <div class="row">
                                                     <div class="col-lg-3">
-                                                        <label class="login2 pull-right pull-right-pro">DOB</label>
+                                                        <label class="login2 pull-right pull-right-pro">DOB {{ user.profile.birth_date |date:'m/d/Y' }}</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
                                                         <div class="input-group date">
@@ -282,9 +327,9 @@
                                                                     </button>
                                                                 </span>
                                                             <input type="date" class="form-control"
-                                                                   name="birth_date" value="10/04/2018">
+                                                                   name="birth_date" value="{{ user.profile.birth_date | date:'m-d-Y' }}">
                                                         </div>
-                                                        {% for error in form.birth_date.errors %}
+                                                        {% for error in profile_form.birth_date.errors %}
                                                             <p class="help is-danger"> {{ error | escape }}</p>
                                                         {% endfor %}
                                                     </div>
@@ -304,9 +349,10 @@
                                                                     </button>
                                                                 </span>
                                                             <input type="text" placeholder="location"
+                                                                   value="{{ user.profile.location }}"
                                                                    name="location" class="form-control">
                                                         </div>
-                                                        {% for error in form.location.errors%}
+                                                        {% for error in profile_form.location.errors%}
                                                             <p class="help is-danger"> {{ error | escape }}</p>
                                                         {% endfor %}
                                                     </div>
@@ -319,9 +365,9 @@
                                                         <label class="login2 pull-right pull-right-pro">Bio</label>
                                                     </div>
                                                     <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                                                        <textarea name="bio" class="form-control" rows="4">{{ user.bio }}</textarea>
+                                                        <textarea name="bio" class="form-control" rows="4">{{ user.profile.bio }}</textarea>
                                                     </div>
-                                                    {% for error in form.bio.errors%}
+                                                    {% for error in profile_form.bio.errors%}
                                                         <p class="help is-danger"> {{ error | escape }}</p>
                                                     {% endfor %}
                                                 </div>
