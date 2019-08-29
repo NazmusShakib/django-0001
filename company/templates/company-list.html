@@ -57,7 +57,10 @@
                                     <td>{{ company.email }}</td>
                                     <td>{{ company.phone }}</td>
                                     <td>{{ company.web_site }}</td>
-                                    <td><button class="btn btn-info">;)</button></td>
+                                    <td>
+                                        <a href="{% url 'company.update' company.id %}" class="btn btn-info">Edit</a>
+                                        <a href="{% url 'company.delete' company.id %}" class="btn btn-danger">Dele</a>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                                 </tbody>

@@ -6,8 +6,8 @@ from django.dispatch import receiver
 
 class Companies(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, null=True, blank=True)
-    email = models.EmailField()
+    name = models.CharField(max_length=100, null=True, blank=False)
+    email = models.EmailField(blank=False)
     phone = models.CharField(max_length=50, null=True, blank=True)
     web_site = models.URLField(max_length=50, null=True, blank=True)
     address = models.TextField(max_length=500,null=True, blank=True)

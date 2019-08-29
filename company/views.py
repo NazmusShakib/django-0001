@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.utils.decorators import method_decorator
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from company.models import Companies
 
@@ -18,7 +18,7 @@ class CompanyList(ListView):
 @method_decorator(login_required, name='dispatch')
 class CompanyCreate(CreateView):
     model = Companies
-    template_name = 'company-form.html'
+    template_name = 'company-create.html'
     fields = (
         'name',
         'email',
@@ -35,3 +35,24 @@ class CompanyCreate(CreateView):
 # @login_required
 # def companyCreate(request):
 #     return render(request, 'company-form.html')
+
+@method_decorator(login_required, name='dispatch')
+class CompanyUpdate(UpdateView):
+    model = Companies
+    template_name = 'company-update.html'
+    fields = (
+        'name',
+        'email',
+        'phone',
+        'web_site',
+        'address'
+    )
+    success_url = '/companies'
+
+
+@method_decorator(login_required, name='dispatch')
+class CompanyDelete(DeleteView):
+    model = Companies
+    template_name = 'company-delete.html'
+    context_object_name = 'company'
+    success_url = '/companies'

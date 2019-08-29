@@ -75,6 +75,8 @@
                                                         <input type="email"
                                                                name="{{ form.email.name }}"
                                                                id="{{ form.email.id_for_label }}"
+                                                               {% if form.email.value != None %}value="{{ form.email.value|stringformat:'s' }}"{% endif %}
+                                                               maxlength="{{ form.name.field.max_length }}"
                                                                {% if form.email.field.required %} required {% endif %}
                                                                class="form-control">
                                                     </div>
@@ -89,6 +91,7 @@
                                                         <input type="text"
                                                                name="{{ form.phone.name }}"
                                                                id="{{ form.phone.id_for_label }}"
+                                                               {% if form.phone.value != None %}value="{{ form.phone.value|stringformat:'s' }}"{% endif %}
                                                                maxlength="{{ form.phone.field.max_length }}"
                                                                {% if form.phone.field.required %} required{% endif %}
                                                                class="form-control">
@@ -105,6 +108,7 @@
                                                                name="{{ form.web_site.name }}"
                                                                id="{{ form.web_site.id_for_label }}"
                                                                maxlength="{{ form.web_site.field.max_length }}"
+                                                               {% if form.web_site.value != None %}value="{{ form.web_site.value|stringformat:'s' }}"{% endif %}
                                                                {% if form.web_site.field.required %} required{% endif %}
                                                                class="form-control">
                                                     </div>
@@ -121,10 +125,7 @@
                                                                   cols="30"
                                                                   rows="6"
                                                                   {% if form.address.field.required %}required{% endif %}
-                                                                  class="form-control">
-
-                                                        </textarea>
-
+                                                                  class="form-control">{% if form.address.value != None %}{{ form.address.value|stringformat:'s' }}{% endif %}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
