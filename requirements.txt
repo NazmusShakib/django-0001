@@ -7,6 +7,7 @@ cryptography==2.6.1
 Django==2.2.1
 django-discover-runner==1.0
 django-role-permissions==2.2.1
+django-widget-tweaks==1.4.5
 docutils==0.14
 Faker==1.0.7
 jmespath==0.9.4

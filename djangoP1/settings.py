@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'company',
     'people',
     'projects',
-    'blog'
+    'blog',
+    
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

@@ -1,17 +1,21 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
-# Create your models here.
-class Company(models.Model):
+class Companies(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
-    company_name = models.CharField(max_length=100, null=True, blank=True)
-    company_email = models.EmailField()
-    company_phone = models.CharField(max_length=100, null=True, blank=True)
-    company_address = models.TextField(max_length=500, null=True, blank=True)
-
-    def __str__(self):
-        return self.company_name
+    name = models.CharField(max_length=100, null=True, blank=True)
+    email = models.EmailField()
+    phone = models.CharField(max_length=50, null=True, blank=True)
+    web_site = models.URLField(max_length=50, null=True, blank=True)
+    address = models.TextField(max_length=500,null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ('company_name',)
+        ordering = ('-created_at',)
+
+    def __str__(self):
+        return self.name
