@@ -32,6 +32,7 @@ class CompanyCreate(CreateView):
         form.instance.created_by = self.request.user
         return super().form_valid(form)
 
+
 # @login_required
 # def companyCreate(request):
 #     return render(request, 'company-form.html')
