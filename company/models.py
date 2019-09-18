@@ -26,8 +26,9 @@ class Companies(models.Model):
 class Projects(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=True, blank=False)
+    description = models.TextField(max_length=500, null=True, blank=True)
     deadline = models.DateField()
-    company = models.ForeignKey(Companies, on_delete=models.CASCADE)
+    company = models.ForeignKey(Companies, on_delete=models.CASCADE, related_name='projects')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

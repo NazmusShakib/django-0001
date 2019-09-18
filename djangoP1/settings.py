@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'register',
     'company',
     'people',
-    'projects',
     'blog',
-    
+
     'widget_tweaks'
 ]
 
