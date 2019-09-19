@@ -33,7 +33,7 @@ class ProjectCreate(CreateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectCreate, self).get_context_data(**kwargs)
-        context['companies'] = Companies.objects.values('id', 'name')
+        context['companies'] = Companies.objects.values('id', 'name').order_by('-id')
         return context
 
 
