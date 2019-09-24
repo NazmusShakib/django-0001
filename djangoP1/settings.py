@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Include my new apps.
     'dashboard',
     'register',
     'company',
@@ -122,6 +124,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+AUTH_USER_MODEL = 'register.User'
 
 # DATE_INPUT_FORMATS = '%Y/%m/%d'
 
