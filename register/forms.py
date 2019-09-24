@@ -2,6 +2,14 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from register.models import User, Profile
 
+USER_TYPE_CHOICES = (
+    (1, 'student'),
+    (2, 'teacher'),
+    (3, 'secretary'),
+    (4, 'supervisor'),
+    (5, 'admin'),
+)
+
 
 class RegisterForm(UserCreationForm):
     first_name = forms.CharField(max_length=30, required=True,
@@ -9,10 +17,14 @@ class RegisterForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, required=True, help_text='Optional.',
                                 error_messages={'required': 'Please let us know what to call you!'})
     email = forms.EmailField(max_length=254, required=True, help_text='Required. Inform a valid email address.')
+    user_type = forms.CharField(label='Role?', required=True, widget=forms.Select(choices=USER_TYPE_CHOICES, attrs={
+        'class': 'form-control',
+        'placeholder': 'Username'
+    }))
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name', 'email', 'user_type', 'password1', 'password2')
 
 
 class UserUpdateForm(forms.ModelForm):

@@ -69,6 +69,9 @@ class User(AbstractUser):
     def get_short_name(self):
         return self.email
 
+    def get_username(self):
+        return self.email
+
     objects = UserManager()
 
 

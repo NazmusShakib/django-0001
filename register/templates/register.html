@@ -57,15 +57,14 @@
                         <div class="row">
                             <div class="col-lg-4">
                                 <div class="login-input-head">
-                                    <p>Username</p>
+                                    <p>{{ form.user_type.label }}</p>
                                 </div>
                             </div>
                             <div class="col-lg-8">
                                 <div class="login-input-area">
-                                    <input type="text" name="username"/>
-                                    <i class="fa fa-user login-user"></i>
+                                    {{ form.user_type }}
                                 </div>
-                                {{ form.errors.username }}
+                                {{ form.errors.user_type }}
                             </div>
                         </div>
                         <div class="row">
