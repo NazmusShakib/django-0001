@@ -16,8 +16,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('total', type=int, help='Indicates the number of users to be created')
 
-
     def handle(self, *args, **kwargs):
         total = kwargs['total']
         for i in range(total):
-            User.objects.create_user(username=get_random_string, email=fake.free_email(),password='123456')
+            User.objects.create_user(username=get_random_string, email=fake.free_email(), password='123456')

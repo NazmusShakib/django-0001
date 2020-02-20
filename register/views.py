@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import transaction
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login as auth_login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -12,12 +13,14 @@ from register.forms import RegisterForm, UpdateProfileForm, UserUpdateForm
 
 def register(request):
     if request.method == 'POST':
+        print(request.POST)
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
             user.refresh_from_db()  # load the profile instance created by the signal
             user.profile.birth_date = form.cleaned_data.get('birth_date')
-            username = form.cleaned_data.get('username')
+            username = form.cleaned_data.get('email')
+            print(username)
             user.save()
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
