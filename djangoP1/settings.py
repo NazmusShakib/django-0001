@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'company',
     'people',
     'blog',
+    'todo',
 
-    'widget_tweaks'
+    'widget_tweaks',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [

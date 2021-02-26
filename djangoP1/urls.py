@@ -23,6 +23,8 @@ urlpatterns = [
     path('', include("dashboard.urls")),
     path('', include("register.urls")),
     path('', include("company.urls")),
+    path('api-auth/', include('rest_framework.urls')),
+    path('todos/', include('todo.urls')),
 ]
 
 handler404 = 'register.views.handler404'
