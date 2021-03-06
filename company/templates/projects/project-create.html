@@ -18,7 +18,7 @@
                             <span class="bread-slash">/</span>
                         </li>
                         <li>
-                            <span class="bread-blod">Create company</span>
+                            <span class="bread-blod">Create project</span>
                         </li>
                     </ul>
                 </div>
@@ -36,7 +36,7 @@
                 <div class="sparkline12-list shadow-reset mg-t-30">
                     <div class="sparkline12-hd">
                         <div class="main-sparkline12-hd">
-                            <h1>Company Onboarding</h1>
+                            <h1>Project Onboarding</h1>
                         </div>
                     </div>
                     <div class="sparkline12-graph">
@@ -89,7 +89,7 @@
                                                 <div class="row">
                                                     <div class="col-lg-3">
                                                         <label for="{{ form.deadline.id_for_label }}"
-                                                               class="login2 pull-right pull-right-pro">Web Site</label>
+                                                               class="login2 pull-right pull-right-pro">Deadline</label>
                                                     </div>
                                                     <div class="col-lg-9">
                                                         <input type="date"
@@ -97,9 +97,11 @@
                                                                id="{{ form.deadline.id_for_label }}"
                                                                maxlength="{{ form.deadline.field.max_length }}"
                                                                {% if form.deadline.value !=None
-                                                               %}value="{{ form.deadline.value|stringformat:'s' }}" {%
-                                                               endif %}
-                                                               {% if form.deadline.field.required %} required{% endif %}
+                                                                %}
+                                                                value="{{ form.deadline.value|stringformat:'s' }}"
+                                                                {% endif
+                                                                 %}
+                                                               {% if form.deadline.field.required %} required {% endif %}
                                                                class="form-control">
                                                     </div>
                                                 </div>
